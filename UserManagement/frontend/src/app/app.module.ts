@@ -16,6 +16,7 @@ import {CreateUserComponent} from './components/admin/create-user/create-user.co
 import {AdminService} from './services/admin.service';
 import {EditUserComponent} from './components/admin/edit-user/edit-user.component';
 import {AuthorizedComponent} from './components/authentication/authorized/authorized.component';
+import {ErrorService} from './services/error.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {AuthorizedComponent} from './components/authentication/authorized/author
     AuthenticateService,
     UserStoreService,
     AdminService,
+    ErrorService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AppInterceptor,

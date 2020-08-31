@@ -3,6 +3,7 @@ import {User} from '../../../models/user';
 import {AdminService} from '../../../services/admin.service';
 import {Router} from '@angular/router';
 import {Role} from '../../../models/role';
+import {ErrorService} from '../../../services/error.service';
 
 @Component({
   selector: 'app-create-user',
@@ -14,7 +15,7 @@ export class CreateUserComponent implements OnInit {
   public roles: Role[];
   public roleIds: number[] = [];
   public message: string;
-  constructor(private adminService: AdminService, private router: Router) {
+  constructor(private adminService: AdminService, private router: Router, private errorService: ErrorService) {
     this.user = new User();
   }
 
@@ -34,11 +35,11 @@ export class CreateUserComponent implements OnInit {
         console.log(res['message']);
         this.router.navigate(['/admin/all-user']);
       }, (err) => {
-        console.log('Error create user', err.error['errors'])
-        this.message = 'Invalid form';
+        console.log('Error create user', err.error['errors']);
+        this.message = this.errorService.errors(err.error['errors']);
       });
     } else {
-      this.message = 'Invalid form';
+      this.message = 'Invalid Form!';
     }
   }
 }

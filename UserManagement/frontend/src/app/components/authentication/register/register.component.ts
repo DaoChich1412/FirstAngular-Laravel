@@ -2,6 +2,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
 import {User} from '../../../models/user';
 import {AuthenticateService} from '../../../services/authenticate.service';
 import {Router} from '@angular/router';
+import {ErrorService} from '../../../services/error.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import {Router} from '@angular/router';
 export class RegisterComponent {
   public user: User;
   public message: string;
-  constructor(private authService: AuthenticateService, private router: Router) {
+  constructor(private authService: AuthenticateService, private router: Router, private errorService: ErrorService) {
     this.user = new User();
   }
   register(registerForm) {
@@ -21,7 +22,7 @@ export class RegisterComponent {
         this.router.navigate(['login']);
       }, (err) => {
         console.log('Error registering', err.error['errors']);
-        this.message = 'Invalid Form!';
+        this.message = this.errorService.errors(err.error['errors']);
       });
     } else {
       this.message = 'Invalid Form!';

@@ -33,7 +33,7 @@ export class UserListComponent implements OnInit {
   deleteUser(id: number) {
     this.adminService.deleteUser(id).subscribe((res) => {
       console.log(res);
-      this.router.navigate(['admin', 'all-user']);
+      this.ngOnInit();
     }, (err) => {
       console.log(err);
     });

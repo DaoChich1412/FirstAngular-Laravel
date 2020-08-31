@@ -3,6 +3,7 @@ import {User} from '../../../models/user';
 import {AdminService} from '../../../services/admin.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Role} from '../../../models/role';
+import {ErrorService} from '../../../services/error.service';
 
 @Component({
   selector: 'app-edit-user',
@@ -14,7 +15,8 @@ export class EditUserComponent implements OnInit {
   public roles: Role[] = [];
   public roleIds: number[] = [];
   public message: string;
-  constructor(private adminService: AdminService, private route: ActivatedRoute, private router: Router) {
+  // tslint:disable-next-line:max-line-length
+  constructor(private adminService: AdminService, private route: ActivatedRoute, private router: Router, private errorService: ErrorService) {
   }
 
   ngOnInit() {
@@ -48,7 +50,7 @@ export class EditUserComponent implements OnInit {
         this.router.navigate(['/admin/all-user']);
       }, (err) => {
         console.log('Error edit user', err.error['errors']);
-        this.message = 'Invalid Form!';
+        this.message = this.errorService.errors(err.error['errors']);
       });
     } else {
       this.message = 'Invalid Form';
