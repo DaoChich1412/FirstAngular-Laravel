@@ -53,7 +53,7 @@ export class EditUserComponent implements OnInit {
         this.message = this.errorService.errors(err.error['errors']);
       });
     } else {
-      this.message = 'Invalid Form';
+      this.message = 'Invalid Form!';
     }
   }
 }
