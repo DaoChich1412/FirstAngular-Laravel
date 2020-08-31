@@ -1,0 +1,28 @@
+<div class="block">
+  <h2>Register</h2>
+  <div class="message" *ngIf="message">{{message}}</div>
+  <div class="form-group">
+    <form (ngSubmit)="register(registerForm)" #registerForm="ngForm">
+      <div>
+        <input type="text" name="userName" placeholder="Name" required #userName="ngModel" [(ngModel)]="user.name">
+      </div>
+      <div class="errors" *ngIf="userName.invalid&&userName.dirty">
+        <div class="error" *ngIf="userName.errors.required">Name is required!</div>
+      </div>
+      <div>
+        <input type="email" name="userEmail" placeholder="Email" required #userEmail="ngModel" [(ngModel)]="user.email">
+      </div>
+      <div class="errors" *ngIf="userEmail.invalid&&userEmail.dirty">
+        <div class="error" *ngIf="userEmail.errors.required">Email is required!</div>
+      </div>
+      <div>
+        <input type="password" name="userPass" placeholder="Password" required minlength="8" #userPass="ngModel" [(ngModel)]="user.password">
+      </div>
+      <div class="errors" *ngIf="userPass.invalid&&userPass.dirty">
+        <div class="error" *ngIf="userPass.errors.required">Password is required!</div>
+        <div class="error" *ngIf="userPass.errors.minlength">At least of length 8!</div>
+      </div>
+      <button type="submit"> Register</button>
+    </form>
+  </div>
+</div>

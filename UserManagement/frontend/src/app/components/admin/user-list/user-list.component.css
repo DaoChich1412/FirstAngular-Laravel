@@ -1,0 +1,43 @@
+.all-user .links a{
+  padding:10px;
+  font-size:15px;
+  border: 1px solid black;
+  background-color: #1b1e21;
+  font-weight: bold;
+  float:right;
+}
+.all-user table{
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+.all-user table th, .all-user table td{
+  border: 1px solid black;
+}
+.all-user table th{
+  padding: 10px;
+  background-color: #1b1e21;
+  color: white;
+  font-size: 20px;
+}
+.all-user table td{
+  padding: 5px;
+}
+.all-user table td.roles{
+  color: #1f6fb2;
+}
+.all-user table td form{
+  display: inline-block;
+}
+.all-user table td form button{
+  border: 1px solid #38c172;
+  background-color: #38c172;
+  color: #1b1e21;
+  padding: 5px;
+  font-size: 15px;
+  margin-right: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.all-user table td form button:hover{
+  color: white;
+}

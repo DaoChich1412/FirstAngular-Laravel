@@ -1,0 +1,37 @@
+<div class="block">
+  <h2>Add new user</h2>
+  <div class="message" *ngIf="message">{{message}}</div>
+  <div class="form-group">
+    <form (ngSubmit)="newUser(createUserForm)" #createUserForm="ngForm">
+      <div>
+        <input type="text" name="userName" placeholder="Name" required #userName="ngModel" [(ngModel)]="user.name">
+      </div>
+      <div class="errors" *ngIf="userName.invalid&&userName.dirty">
+        <div class="error" *ngIf="userName.errors.required">Name is required!</div>
+      </div>
+      <div>
+        <input type="email" name="userEmail" placeholder="Email" required #userEmail="ngModel" [(ngModel)]="user.email">
+      </div>
+      <div class="errors" *ngIf="userEmail.invalid&&userEmail.dirty">
+        <div class="error" *ngIf="userEmail.errors.required">Email is required!</div>
+      </div>
+      <div>
+        <input type="password" name="userPass" placeholder="Password" required minlength="8" #userPass="ngModel" [(ngModel)]="user.password">
+      </div>
+      <div class="errors" *ngIf="userPass.invalid&&userPass.dirty">
+        <div class="error" *ngIf="userPass.errors.required">Password is required!</div>
+        <div class="error" *ngIf="userPass.errors.minlength">At least of length 8!</div>
+      </div>
+      <div class="select-roles">
+        <select name="roles" multiple #userRoles="ngModel" [(ngModel)]="roleIds" size="2" required>
+          <option *ngFor="let role of roles" [ngValue]="role.id">{{role.name.toUpperCase()}}</option>
+        </select>
+      </div>
+      <div class="errors" *ngIf="userRoles.invalid&&userRoles.dirty">
+        <div class="error" *ngIf="userRoles.errors.required">Role is required!</div>
+      </div>
+      <button type="submit"> Add</button>
+      <a routerLink="/admin/all-user" routerLinkActive="active">Back</a>
+    </form>
+  </div>
+</div>

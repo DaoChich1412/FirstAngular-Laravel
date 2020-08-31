@@ -1,0 +1,15 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="header">
+  <h1>{{ title }}</h1>
+  <div class="links" *ngIf="!userStore.isLoggedIn()">
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+    <a routerLink="/register" routerLinkActive="active">Register</a>
+  </div>
+  <div class="links" *ngIf="userStore.isLoggedIn()">
+    <app-home></app-home>
+  </div>
+</div>
+<div class="main">
+  <router-outlet></router-outlet>
+</div>
+

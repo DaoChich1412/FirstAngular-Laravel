@@ -1,0 +1,29 @@
+<div class="block all-user">
+  <h2>All User</h2>
+  <div>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Roles</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let user of users">
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td class="roles"><span *ngFor="let role of user.roles">{{role.name.toUpperCase()}} </span></td>
+        <td>
+          <form (ngSubmit)="editUser(user.id)">
+            <button type="submit">Edit</button>
+          </form>
+          <form (ngSubmit)="deleteUser(user.id)">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="links">
+    <a routerLink="/admin/create-user" routerLinkActive="active">Add User</a>
+  </div>
+</div>

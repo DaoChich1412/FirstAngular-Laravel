@@ -1,0 +1,63 @@
+/*
+* Style for form
+*/
+.block{
+  /*background-color: #ced4da;*/
+  margin-top:50px;
+}
+.block h2{
+  text-align: center;
+  color: #38c172;
+  margin-bottom: 30px;
+}
+.message{
+  color: #c51f1a;
+  margin-left:20px;
+  margin-bottom:-10px;
+  text-wrap: inherit;
+}
+.form-group .errors{
+  margin-top:5px;
+  margin-left: 5px;
+  color: #c51f1a;
+}
+.form-group{
+  padding:15px;
+}
+.form-group form input{
+  font-size: 15px;
+  padding:5px;
+  border:1px solid black;
+  margin-top: 10px;
+  outline: none;
+}
+.form-group form .select-roles{
+  display: flex;
+  /*justify-content: flex-end;*/
+  margin-top: 10px;
+}
+.form-group form select{
+  outline: none;
+  flex-grow: 1;
+  border: 1px solid black;
+}
+.form-group form select option{
+  font-size: 15px;
+  padding:5px;
+}
+.form-group form button,.form-group form a{
+  font-size:15px;
+  padding:10px;
+  background-color: #1b1e21;
+  color: #38c172;
+  font-weight: bold;
+  outline: none;
+  float:right;
+  margin-top:20px;
+  border: 1px solid black;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.form-group form button:hover, .form-group form a:hover{
+  color: white;
+}
